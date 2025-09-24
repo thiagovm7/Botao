@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercícios 22/09/2025</title>
+    <meta charset="utf-8">
+    <style> 
+        body{ 
+            background-color: rgb(44, 70, 14);
+        }
+        .botao{ 
+            background-color: rgb(245, 175, 70);
+            width: 600px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            border-radius: 15px;
+            box-shadow: 10px 10px 5px rgb(0, 0, 0);
+            margin: auto;
+            margin-top: 100px;
+        }
+        .condicional{
+            background-color: rgb(100, 213, 228);
+            width: 600px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            border-radius: 15px;
+            box-shadow: 10px 10px 5px rgb(0, 0, 0);
+            margin: auto;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!--Questão 01 - botões-->
+    <div class="botao">
+        <h2>1. Botão para preencher campos de cadastro</h2>
+        Nome completo: <input type="text" id="nome" placeholder="Como tu se chama, bichin?" size="60"><br>
+        E-mail: <input type="email" id="email" placeholder="Diz teu e-mail pra eu encher de spam!" size="60"><br>
+        <button onclick="preencher()">Autocompletar</button>
+            <script>
+                function preencher() {
+                document.getElementById("nome").value = "Thiago Valença";
+                document.getElementById("email").value = "thiagovmelo.br@gmail.com";
+                }
+            </script>
+    </div>
+<!--Questão 02 - botões-->
+    <div class="botao">
+        <h2>2. Botão para abrir uma página da internet</h2>
+        <button onclick="window.location.href='https://www.google.com'" target='_blank'>
+Já pra o Google, menino!</button>
+    </div>
+<!--Questão 03 - botões-->
+    <div class="botao">
+        <h2>3. Botão para inserir uma imagem na página</h2>
+        <button onclick="mostrarImagem()">Imagem Misteriosa</button>
+        <div id="area"></div>
+       <script>
+        function mostrarImagem() {
+        document.getElementById("area").innerHTML = '<img src="https://preview.redd.it/big-monke-flips-you-off-what-u-do-v0-861gk9gqka0c1.png?width=320&crop=smart&auto=webp&s=b3da7ce53e59215b9e012615aa93c8fc859479e2" alt="Macaco simpatico">';
+        }
+       </script>
+    </div>
+<!--Questão 04 - botões-->
+    <div class="botao">
+        <h2>4. Botão para mudar a cor de fundo</h2>
+            <button onclick="document.body.style.backgroundColor='blue'">Azul</button><br>
+            <button onclick="document.body.style.backgroundColor='green'">Verde</button><br>
+            <button onclick="document.body.style.backgroundColor='red'">Vermelho</button>
+        </script>
+    </div>
+<!--Questão 05 - botões-->
+    <div class="botao">
+        <h2>5. Botões para texto em negrito e itálico</h2>
+        <p id="negritoItalico" style="font-size: 20px;">Uma hora eu sou negrito, outra hora eu sou itálico!</p>
+            <button onclick="negrito()">Negrito</button><br>
+            <button onclick="italico()">Itálico</button>
+        <script>
+            function negrito() {
+                document.getElementById("negritoItalico").style.fontWeight = "bold";
+            }
+            function italico() {    
+                document.getElementById("negritoItalico").style.fontStyle = "italic";
+            }
+        </script>
+    </div>  
+<!--Questão 01 - condicionais--> 
+    <div class="condicional">
+        <h2>1. Verificação de número par ou ímpar</h2>
+        <input type="number" id="numero" placeholder="Digite um número">
+        <button onclick="verificarParImpar()">Manda ver!</button>
+        <p id="resultado"></p>
+        <script>
+            function verificarParImpar() {
+                var num = document.getElementById("numero").value;
+                var resultado = (num % 2 === 0) ? "par" : "ímpar";
+                document.getElementById("resultado").innerText = "O número " + num + " é " + resultado + ".";
+            }
+        </script>
+    </div>
+<!--Questão 02 - condicionais-->    
+    <div class="condicional">
+        <h2>2. Maior de idade</h2>
+        <input type="number" id="idade" placeholder="Sem mentir!">
+        <button onclick="verificarIdade()">Verificar</button>
+        <script>
+            function verificarIdade() {
+                var idade = document.getElementById("idade").value;
+        if (idade >= 18) {
+            alert("Parabéns! Já pode ser preso!");
+        } 
+        else {
+            alert("Sai daqui, pirralho!");
+        }
+    }
+        </script>
+    </div>
+<!--Questão 03 - condicionais-->     
+    <div class="condicional">
+        <h2>3. Classificação de nota</h2>
+        <input type="number" id="nota" placeholder="Manda a sofrida!">
+        <button onclick="classificarNota()">Hora da verdade</button>
+        <p id="classificacao"></p>
+        <script>
+            function classificarNota() {
+                var nota = document.getElementById("nota").value;
+                var classificacao;
+                if (nota >= 8) {
+                    classificacao = "Aprovado! Se livrou!";
+                } else if (nota >= 7) {
+                    classificacao = "Passou! Mas foi por pouco!";
+                } else if (nota >= 5) {
+                    classificacao = "Tá na recuperação, boy!";
+                } else {
+                    classificacao = "Lascou-se! Vai estudar mais!";
+                }
+                document.getElementById("classificacao").innerText = classificacao;
+            }
+        </script>
+    </div>
+<!--Questão 04 - condicionais--> 
+    <div class="condicional">
+        <h2>4. Verificação de login</h2>
+        <input type="text" id="usuario" placeholder="Usuário"><br>
+        <input type="password" id="senha" placeholder="Senha"> 
+        <button onclick="verificarLogin()">Dá-lhe!</button>
+        <script>
+            function verificarLogin() {
+                var usuario = document.getElementById("usuario").value;
+                var senha = document.getElementById("senha").value;
+                if (usuario === "admin" && senha === "1234") {
+                    alert("Acertou, Mizeravi!!");
+                } else {
+                    alert("Quem é tu na fila do pão?");
+                }
+            }
+        </script>   
+
+
+    </div>
+<!--Questão 05 - condicionais-->
+    <div class="condicional">
+        <h2>5. Descobrir o maior entre três números</h2>
+        <input type="number" id="num1" placeholder="Número 1"><br>
+        <input type="number" id="num2" placeholder="Número 2"><br>
+        <input type="number" id="num3" placeholder="Número 3"><br>
+        <button onclick="descobrirMaior()">Quem é o maior nessa parada aí?</button>
+        <p id="maiorNumero"></p>
+        <script>
+            function descobrirMaior() {
+                var n1 = parseFloat(document.getElementById("num1").value);
+                var n2 = parseFloat(document.getElementById("num2").value);
+                var n3 = parseFloat(document.getElementById("num3").value);
+                var maior;
+                if (n1 >= n2 && n1 >= n3) {
+                    maior = n1;
+                } else if (n2 >= n1 && n2 >= n3) {
+                    maior = n2;
+                } else {
+                    maior = n3;
+                }
+                document.getElementById("maiorNumero").innerText = "E o vencedor é: " + maior + " Tcharannn!!";
+            }
+        </script>
+    </div>
+</body>
+</html>
